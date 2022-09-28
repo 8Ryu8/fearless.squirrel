@@ -28,6 +28,17 @@ Player.prototype.dead = function () {
         init();
 }
 
+Player.prototype.looseLife = function () {
+    this.graphic.position.z = this.graphic.position.z-0.1;
+    this.life -= 1;
+    console.log("LIFE: " + this.life);
+    this.position = new THREE.Vector2(50, 0);
+    if (this.life == 0)
+        this.dead();
+        //Nettoyage de la div container
+        jQuery('#'+this.name+' >.life').text("Tu as perdu de la vie!");
+}
+
 Player.prototype.accelerate = function (distance) {
     var max = 2;
 

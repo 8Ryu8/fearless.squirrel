@@ -62,13 +62,21 @@ function player_collision()
     var y = player1.graphic.position.y + HEIGHT / 2;
 
     if ( x < 0 )
+    {
         player1.graphic.position.x -= x;
+    }
     if ( x > WIDTH )
+    {
         player1.graphic.position.x -= x - WIDTH;
+    }    
     if ( y < 0 )
+    {
         player1.graphic.position.y -= y;
+    }
     if ( y > HEIGHT )
+    {
         player1.graphic.position.y -= y - HEIGHT;
+    }
         
 
 }
@@ -97,7 +105,8 @@ function player_falling()
             && (y > tileY) 
             && (y < mtileY))
         {
-           player1.dead();
+           //player1.dead();
+           player1.looseLife();
         }
     }
 
