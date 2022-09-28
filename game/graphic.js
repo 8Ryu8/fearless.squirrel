@@ -1,3 +1,7 @@
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
 function init()
 {
     // set some camera attributes
@@ -27,6 +31,12 @@ function init()
     
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
     scene.add(player1.graphic);
+
+    for (i = 0; i < 2; i++)
+    {
+        ennemy = new Ennemy(0xffc0cb,new THREE.Vector2(randomIntFromInterval(0, WIDTH),400), randomIntFromInterval(0, 20));
+        scene.add(ennemy.graphic);
+    }
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
